@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-    @Query(value = "SELECT * FROM PRODUCTS", nativeQuery = true)
+    @Query(value = "SELECT * FROM PRODUCTS", nativeQuery = true, queryRewriter = DefaultQueryRewriter.class)
     List<Product> findProducts();
 }
